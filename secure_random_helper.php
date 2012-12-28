@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-if ( ! function_exists('random_int'))
+if ( ! function_exists('secure_random_int'))
 {
 	// http://php.net/manual/en/function.openssl-random-pseudo-bytes.php#104322
-	function random_int($min=0,$max=32)
+	function secure_random_int($min=0,$max=32)
 	{
 		$range = $max - $min;
 		if ($range == 0) return $min; // not so random...
@@ -53,14 +53,14 @@ if ( ! function_exists('secure_random_string'))
 					$str = '';
 					for ($i=0; $i < $len; $i++)
 					{
-						$str .= substr($pool, random_int(0, strlen($pool) -1), 1);
+						$str .= substr($pool, secure_random_int(0, strlen($pool) -1), 1);
 					}
 					return $str;
 				break;
 			case 'unique'	:
 			case 'md5'		:
 
-						return md5(uniqid(random_int()));
+						return md5(uniqid(secure_random_int()));
 				break;
 			case 'encrypt'	:
 			case 'sha1'	:
@@ -68,7 +68,7 @@ if ( ! function_exists('secure_random_string'))
 						$CI =& get_instance();
 						$CI->load->helper('security');
 
-						return do_hash(uniqid(random_int(), TRUE), 'sha1');
+						return do_hash(uniqid(secure_random_int(), TRUE), 'sha1');
 				break;
 		}
 	}
