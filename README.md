@@ -8,17 +8,19 @@ Put `secure_random_helper.php` into `your_project/application/helpers/`.
 
 ### Usage
 
-	class Home extends CI_Controller
+```php
+class Home extends CI_Controller
+{
+	public function index()
 	{
-		public function index()
-		{
-			// $this->load->helper('string');
-			$this->load->helper('secure_random');
+		// $this->load->helper('string');
+		$this->load->helper('secure_random');
 
-			// $password = random_string('alnum', 8);
-			$password = secure_random_string('alnum', 8);
-		}	
-	}
+		// $password = random_string('alnum', 8);
+		$password = secure_random_string('alnum', 8);
+	}	
+}
+```
 
 Note: `secure_random_string` will throw `Exception` if generated string was not secure (see `$crypto_strong` argument of [openssl_random_pseudo_bytes](php.net/openssl_random_pseudo_bytes) function).
 
