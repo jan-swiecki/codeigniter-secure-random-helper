@@ -1,6 +1,8 @@
+**This is deprecated, you can check the source and use it, but at your own risk. It may not be cryptographically secure!**
+
 ## CodeIgniter-Secure-Random-Helper
 
-`random_string` from [String helper](http://ellislab.com/codeigniter/user-guide/helpers/string_helper.html) equivalent, but cryptographically secure.
+`random_string` from [String helper](http://ellislab.com/codeigniter/user-guide/helpers/string_helper.html) equivalent, but <s>cryptographically secure</s>.
 
 ### Install
 
